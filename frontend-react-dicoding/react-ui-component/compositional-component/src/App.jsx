@@ -75,24 +75,9 @@ function App() {
     return (
       <div>
         <Header title="Latest News" subtitle="Covering March & April"/>
-        <Card 
-          title={someNews[0].title}
-          date={someNews[0].date}
-          content={someNews[0].content}
-          image={someNews[0].image}
-          category={someNews[0].category}
-          link={someNews[0].link}
-        />
-        <Card 
-          title={someNews[1].title}
-          date={someNews[1].date}
-          content={someNews[1].content}
-          image={someNews[1].image}
-          category={someNews[1].category}
-          link={someNews[1].link}
-        />
-        {/* Karena someNews dan parameter di card identik maka bisa menggunakan spread operator */}
-        <Card {...someNews[2]}/>
+        {someNews.map((news) => (
+          <Card {...news} key={news.title}/>
+        ))}
       </div>
     );
   }
