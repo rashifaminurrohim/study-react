@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ContactInput extends React.Component {
   constructor(props) {
@@ -31,20 +32,26 @@ class ContactInput extends React.Component {
     });
   }
 
+
   onSubmitEventHandler(event) {
     event.preventDefault();
     this.props.addContact(this.state);
   }
 
   render() {
-   return (
-     <form className='contact-input' onSubmit={this.onSubmitEventHandler}>
-       <input type="text" placeholder="Nama" value={this.state.name} onChange={this.onNameChangeEventHandler} />
-       <input type="text" placeholder="Tag" value={this.state.tag} onChange={this.onTagChangeEventHandler} />
-       <button type="submit">Tambah</button>
-     </form>
-   )
- }
+    return (
+      <form className='contact-input' onSubmit={this.onSubmitEventHandler}>
+        <input type="text" placeholder="Nama" value={this.state.name} onChange={this.onNameChangeEventHandler} />
+        <input type="text" placeholder="Tag" value={this.state.tag} onChange={this.onTagChangeEventHandler} />
+        <button type="submit">Tambah</button>
+      </form>
+    )
+  }
+
+}
+
+ContactInput.propTypes = {
+  addContact: PropTypes.func.isRequired,
 }
 
 export default ContactInput;
