@@ -24,6 +24,8 @@ export function FruitsSearch() {
         console.error("Error fetching data:", error);
       }
     }, 700);
+
+    return () => clearTimeout(timeoutId);
   }, [query]);
 
   return (
