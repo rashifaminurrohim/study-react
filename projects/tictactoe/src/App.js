@@ -3,7 +3,10 @@ import { useState } from "react";
 function Square({ value, onSquareClick, isHighlighted }) {
   console.log(isHighlighted);
   return (
-    <button className={`square ${isHighlighted ? "highlight" : ""}`} onClick={onSquareClick} >
+    <button
+      className={`square ${isHighlighted ? "highlight" : ""}`}
+      onClick={onSquareClick}
+    >
       {value}
     </button>
   );
@@ -20,7 +23,7 @@ function Board({ xIsNext, squares, onPlay }) {
     } else {
       nextSquares[i] = "O";
     }
-    onPlay(nextSquares);
+    onPlay(nextSquares, i);
   }
 
   const result = calculateWinner(squares);
@@ -57,14 +60,25 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [history, setHistory] = useState([
+    {
+      squares: Array(9).fill(null),
+      move: null,
+    },
+  ]);
   const [currentMove, setCurrentMove] = useState(0);
   const [isAscending, setIsAscending] = useState(true);
   const xIsNext = currentMove % 2 === 0;
-  const currentSquares = history[currentMove];
+  const currentSquares = history[currentMove].squares;
 
-  function handlePlay(nextSquares) {
-    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+  function handlePlay(nextSquares, i) {
+    const nextHistory = [
+      ...history.slice(0, currentMove + 1),
+      {
+        squares: nextSquares,
+        move: i,
+      },
+    ];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
   }
@@ -73,10 +87,13 @@ export default function Game() {
     setCurrentMove(nextMove);
   }
 
-  const moves = history.map((squares, move) => {
+  const moves = history.map((step, move) => {
     let description;
     if (move > 0) {
-      description = "Go to move #" + move;
+      const row = Math.floor(step.move / 3) + 1;
+      const col = (step.move % 3) + 1;
+      console.log(step.move);
+      description = `Go to move #${move} (${row}, ${col})`;
     } else {
       description = "Go to game start";
     }
@@ -129,7 +146,7 @@ function calculateWinner(squares) {
       return {
         winner: squares[a],
         line: [a, b, c],
-      }
+      };
     }
   }
   return null;
