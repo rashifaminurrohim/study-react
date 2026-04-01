@@ -1,0 +1,51 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 32px;
+}
+
+.status {
+  margin: 15px 0 20px;
+  font-size: 18px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  font-size: 28px;
+  font-weight: bold;
+  border: 1px solid #999;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.square:hover {
+  background-color: #f0f0f0;
+}
+
+#reset {
+  padding: 10px 18px;
+  font-size: 16px;
+  border: 1px solid #999;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+}
+
+#reset:hover {
+  background-color: #f0f0f0;
+}
