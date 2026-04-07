@@ -4,7 +4,7 @@ export default function TechStack() {
       <div className="bg-secondary rounded-b-[100px] py-10" />
       <div className="flex flex-col items-center gap-8 pt-20">
         {/* Title */}
-        <h2>Tech Stack</h2>
+        <h2 className="text-heading">Some Technologies I've Worked With</h2>
 
         {/* Icon Row */}
         <div className="flex items-center gap-8">

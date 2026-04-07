@@ -9,3 +9,57 @@
   --color-border: #e4e4e7;
   --color-accent: #111111;
 }
+
+/* Typography Design System - Tailwind v4
+  Roles: Display, Heading, Paragraph, Label
+  Reusable across projects
+*/
+@layer base {
+  body {
+    font-family: "Poppins", sans-serif;
+    color: var(--color-text);
+  }
+}
+
+@layer utilities {
+
+  /* DISPLAY - Hero titles */
+  .text-display {
+    @apply text-5xl font-semibold tracking-tight leading-tight;
+  }
+
+  /* HEADING - Section titles */
+  .text-heading {
+    @apply text-3xl font-semibold tracking-tight leading-tight;
+  }
+
+  /* SUBHEADING (optional) */
+  .text-subheading {
+    @apply text-xl font-medium leading-snug;
+  }
+
+  /* PARAGRAPH - Body text */
+  .text-paragraph {
+    @apply text-base leading-relaxed;
+  }
+
+  /* LABEL - Small UI text */
+  .text-label {
+    @apply text-sm font-medium leading-normal;
+  }
+
+  /* MUTED VARIANT */
+  .text-muted {
+    @apply text-zinc-500;
+  }
+}
+
+/* Recommended usage examples:
+
+<h1 class="text-display">Hero Title</h1>
+<h2 class="text-heading">Section Title</h2>
+<h3 class="text-subheading">Card Title</h3>
+<p class="text-paragraph">Body text</p>
+<span class="text-label">Navbar item</span>
+
+*/
