@@ -14,8 +14,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 py-6 rounded-t-[100px] mx-1 transition-all duration-300 ${
-        scrolled ? "backdrop-blur-sm bg-zinc-100/30" : "bg-secondary"
+      className={`sticky top-0 z-50 py-6 mx-1 transition-all duration-300 ${
+        scrolled
+          ? "backdrop-blur-sm bg-zinc-100/30"
+          : "bg-secondary border border-b-0 border-x-2 border-zinc-200 shadow-[0_-2px_4px_-6px_rgba(0,0,0,0.07)]"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 md:px-6">

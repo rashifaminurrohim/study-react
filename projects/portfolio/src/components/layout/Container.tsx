@@ -3,5 +3,5 @@ type Props = {
 };
 
 export default function Container({ children }: Props) {
-  return <div className="max-w-full mx-1">{children}</div>;
+  return <div className="max-w-full">{children}</div>;
 }

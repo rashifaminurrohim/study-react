@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Special+Elite&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -16,42 +17,51 @@
 */
 @layer base {
   body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Courier Prime", monospace;
     color: var(--color-text);
   }
 }
 
 @layer utilities {
 
-  /* DISPLAY - Hero titles */
   .text-display {
-    @apply text-5xl font-semibold tracking-tight leading-tight;
+    @apply text-5xl font-normal tracking-wide leading-tight;
   }
 
-  /* HEADING - Section titles */
   .text-heading {
-    @apply text-3xl font-semibold tracking-tight leading-tight;
+    @apply text-3xl tracking-wide leading-tight;
   }
 
-  /* SUBHEADING (optional) */
-  .text-subheading {
-    @apply text-xl font-medium leading-snug;
-  }
-
-  /* PARAGRAPH - Body text */
   .text-paragraph {
-    @apply text-base leading-relaxed;
+    @apply text-base leading-relaxed tracking-wide;
   }
 
-  /* LABEL - Small UI text */
   .text-label {
-    @apply text-sm font-medium leading-normal;
+    @apply text-sm tracking-wide;
   }
 
   /* MUTED VARIANT */
   .text-muted {
     @apply text-zinc-500;
   }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@theme {
+  --animate-marquee: marquee 40s linear infinite;
+}
+
+html {
+  scroll-padding-top: var(--nav-h);
 }
 
 /* Recommended usage examples:
