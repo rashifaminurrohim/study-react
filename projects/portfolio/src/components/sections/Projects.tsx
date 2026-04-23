@@ -113,14 +113,14 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <div className="bg-secondary">
+    <section className="bg-secondary">
       <div className="bg-primary rounded-b-[100px] py-10 border border-t-0 border-x-2 border-b-2 border-zinc-100 shadow-[0_2px_4px_-1px_rgba(0,0,0,0.07)]" />
       <div className="flex flex-col mx-auto max-w-7xl gap-10 px-10 pt-20 pb-54">
         {/* Title */}
         <h2 className="text-heading text-center">What I've Done</h2>
 
         {/* Grid */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Projects-item-wrapper */}
           {projects.map((project, index) => (
             <div
@@ -131,16 +131,20 @@ export default function Projects() {
               <img
                 src={project.image}
                 alt=""
-                className="w-full h-54 object-contain"
+                className="w-full aspect-[75%] object-contain"
               />
 
               {/* overlay */}
               <div
-                className="absolute inset-0 flex flex-col items-center justify-center
-              bg-black/64
-              opacity-0
-              group-hover:opacity-100
-              transition-opacity duration-300"
+                className="
+                  absolute inset-0 flex flex-col 
+                  items-center justify-center
+                  bg-black/64
+                  opacity-0
+                  group-hover:opacity-100
+                  transition-opacity duration-300
+                  hover:scale-[1.02]
+                "
               >
                 {/* icon center */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -161,8 +165,8 @@ export default function Projects() {
           ))}
         </div>
         {selectedProject && (
-          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 overflow-y-auto">
-            <div className="bg-white max-w-xl w-full flex flex-col items-center">
+          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 py-10">
+            <div className="bg-white max-w-md md:max-w-xl mx-4 w-full max-h-[90vh] overflow-y-auto flex flex-col items-center">
               <header className="bg-secondary w-full text-center relative py-2 border-b-2 border-x border-tertiary shadow-sm">
                 <button
                   onClick={() => setSelectedProject(null)}
@@ -196,7 +200,7 @@ export default function Projects() {
                   <a
                     href={selectedProject.source}
                     target="_blank"
-                    rel="noopener norefferer"
+                    rel="noopener noreferrer"
                     onClick={() => setSelectedProject(null)}
                     className="py-2 px-3 border-3 font-medium text-accent active:translate-y-px active:shadow"
                   >
@@ -207,7 +211,7 @@ export default function Projects() {
                     <a
                       href={selectedProject.source}
                       target="_blank"
-                      rel="noopener norefferer"
+                      rel="noopener noreferrer"
                       onClick={() => setSelectedProject(null)}
                       className="py-2 px-3 border-3 font-medium text-accent active:translate-y-px active:shadow"
                     >
@@ -217,7 +221,7 @@ export default function Projects() {
                     <a
                       href={selectedProject.demo}
                       target="_blank"
-                      rel="noopener norefferer"
+                      rel="noopener noreferrer"
                       onClick={() => setSelectedProject(null)}
                       className="py-2 px-3 border-3 font-medium text-accent active:translate-y-px active:shadow"
                     >
@@ -230,6 +234,6 @@ export default function Projects() {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 }
