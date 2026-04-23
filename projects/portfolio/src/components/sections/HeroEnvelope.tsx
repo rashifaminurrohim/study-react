@@ -17,8 +17,7 @@ export default function HeroEnvelope() {
         {/* Avatar kanan atas*/}
         <div
           className="
-            absolute top-(--nav-h) right-12 
-            mt-8
+            absolute top-[calc(var(--nav-h)+2rem)] right-[4%]
           "
         >
           <img
@@ -33,8 +32,8 @@ export default function HeroEnvelope() {
             src={PostMark}
             alt="Frame"
             className="
-              absolute top-30 right-26 md:right-26 lg:right-36 
-              h-25 md:h-35 lg:h-45
+              absolute top-[50%] right-[55%]
+              h-30 md:h-35 lg:h-40
               rotate-340 
               object-cover 
             "
@@ -43,8 +42,9 @@ export default function HeroEnvelope() {
         {/* Nama & Okupasi - kiri bawah */}
         <div
           className="
-            absolute bottom-16 left-24 
+            absolute bottom-[8%] left-[6%] md:left-[8%] lg:left-[10%] 
             flex flex-col gap-3
+            pr-8
           "
         >
           <h1
