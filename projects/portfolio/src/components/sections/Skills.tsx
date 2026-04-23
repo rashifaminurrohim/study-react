@@ -1,48 +1,49 @@
-import { FaCode } from "react-icons/fa6";
-import { LuRocket, LuWrench } from "react-icons/lu";
+import { Icon } from "@iconify/react";
 
 export default function Skills() {
+  const skills = [
+    {
+      title: "Build",
+      desc: "Build end-to-end web and mobile applications using modern technologies.",
+      icon: "grommet-icons:code",
+    },
+    {
+      title: "Deploy",
+      desc: "Deploying applications and managing production environments.",
+      icon: "lucide:rocket",
+    },
+    {
+      title: "Maintain",
+      desc: "Refactoring and improving code for scalability and stability.",
+      icon: "streamline-flex:wrench-hand",
+    },
+  ];
+
   return (
-    <div className="bg-secondary border border-t-0 border-b-0 border-zinc-200 border-x-2">
-      <div className="flex flex-col mx-auto max-w-6xl gap-10 p-10 pt-40 ">
+    <section className="bg-secondary border border-t-0 border-x-2 border-b-0 border-zinc-200">
+      <div className="flex flex-col max-w-6xl mx-auto p-10 pt-40 gap-10">
         {/* title */}
         <h2 className="text-heading text-center">What I do</h2>
 
         {/* Grid */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Card */}
-          <div className="p-6 rounded-2xl bg-primary border-2 border-white shadow-sm">
-            <div className="flex items-center gap-4">
-              <FaCode className="w-16 h-16 bg-zinc-100 text-accent shadow-inner rounded mb-4 p-1x" />
-              <h3 className="text-heading font-semibold">Build</h3>
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className="p-6  bg-primary border-2 border-white rounded-2xl shadow-sm hover:shadow-md transition duration-200">
+              <div className="flex items-center mb-4 gap-4">
+                <Icon
+                  icon={skill.icon}
+                  className="w-16 h-16 p-1 bg-zinc-100 text-accent shadow-inner rounded"
+                ></Icon>
+                <h3 className="text-heading font-semibold">{skill.title}</h3>
+              </div>
+              <p className="text-paragraph">{skill.desc}</p>
             </div>
-            <p className="text-paragraph">
-              Build end-to-end web and mobile applications using modern
-              technologies.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-primary border-2 border-white shadow-sm">
-            <div className="flex items-center gap-4">
-              <LuRocket className="w-16 h-16 bg-zinc-100 text-accent shadow-inner rounded mb-4 p-1" />
-              <h3 className="text-heading font-semibold">Deploy</h3>
-            </div>
-            <p className="text-paragraph">
-              Deploying applications and managing production environments.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-primary border-2 border-white shadow-sm">
-            <div className="flex items-center gap-4">
-              <LuWrench className="w-16 h-16 bg-zinc-100 text-accent shadow-inner rounded mb-4 p-1" />
-              <h3 className="text-heading font-semibold">Maintain</h3>
-            </div>
-            <p className="text-paragraph">
-              Refactoring and improving code for scalability and stability.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

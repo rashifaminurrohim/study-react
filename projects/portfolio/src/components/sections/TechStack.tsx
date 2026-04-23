@@ -6,6 +6,7 @@ export default function TechStack() {
     "devicon:css3",
     "logos:javascript",
     "devicon:typescript",
+    "logos:python",
     "logos:java",
     "logos:kotlin-icon",
     "logos:react",
@@ -13,17 +14,21 @@ export default function TechStack() {
     "simple-icons:express",
     "logos:android-icon",
     "logos:git-icon",
+    "devicon:postman",
+    "devicon:postgresql",
+    "flat-color-icons:linux",
+    "logos:aws",
   ];
 
   return (
     <div className="bg-primary overflow-hidden">
-      <div className="bg-secondary rounded-b-[100px] py-10 border border-t-0 border-x-2 border-b-2 border-zinc-200 shadow-[0_2px_4px_-1px_rgba(0,0,0,0.07)]" />
+      <div className="bg-secondary py-10 border border-t-0 border-x-2 border-b-2 rounded-b-[100px] border-zinc-200 shadow-[0_2px_4px_-1px_rgba(0,0,0,0.07)]" />
 
       <div className="flex flex-col items-center gap-8 pt-20">
-        <h2 className="text-heading">Some Technologies I've Worked With</h2>
+        <h2 className="mb-4 text-xl md:text-3xl lg:text-4xl">
+          Some Technologies I've Worked With
+        </h2>
 
-        {/* Marquee Container */}
-        {/* pause animasi saat hover di area manapun dalam track */}
         <div className="w-full overflow-hidden py-6">
           <div
             className="flex w-max animate-marquee"
@@ -32,20 +37,19 @@ export default function TechStack() {
             {[...icons, ...icons].map((icon, index) => (
               <div
                 key={index}
-                className="mx-8 flex items-center justify-center"
-                onMouseEnter={(e) => {
-                  // set --play-state ke paused di track saat icon di-hover
-                  e.currentTarget.closest(".animate-marquee") as HTMLElement;
-                }}
-                onMouseLeave={(e) => {
-                  (
-                    e.currentTarget.closest(".animate-marquee") as HTMLElement
-                  )?.style.setProperty("--play-state", "running");
-                }}
+                className="mx-4 md:mx-6 lg:mx-8 flex items-center justify-center"
               >
                 <Icon
                   icon={icon}
-                  className="w-20 h-20 md:w-24 md:h-24 grayscale transition-all duration-400 ease-out hover:grayscale-0 hover:scale-125 hover:drop-shadow-lg"
+                  className="
+                    w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 
+                    grayscale hover:grayscale-0
+                    opacity-75 hover:opacity-100
+                    hover:drop-shadow-lg
+                    hover:scale-130
+                    transition-all ease-out 
+                    duration-400
+                  "
                 />
               </div>
             ))}
