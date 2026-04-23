@@ -12,7 +12,7 @@ export default function App() {
   return (
     <main className="bg-primary min-h-screen mx-1">
       <NavbarEnvelope />
-      <section id="hero">
+      <section id="home">
         <Container>
           <div className="min-h-[calc(100vh-var(--nav-h))] flex flex-col">
             <HeroEnvelope />
