@@ -2,13 +2,13 @@ import { FaHandshakeAngle, FaWhatsapp } from "react-icons/fa6";
 import { GoMail } from "react-icons/go";
 export default function Contact() {
   return (
-    <div className="bg-primary pt-30 pb-10 rounded-t-[100px] border border-b-0 border-x-2 border-t-2 border-zinc-200 shadow-[0_-2px_4px_-1px_rgba(0,0,0,0.07)] -mt-24">
-      <div className="flex flex-col items-center mx-auto max-w-6xl gap-8">
+    <div className="bg-primary pt-20 md:pt-30 pb-10 rounded-t-[100px] border border-b-0 border-x-2 border-t-2 border-zinc-200 shadow-[0_-2px_4px_-1px_rgba(0,0,0,0.07)] -mt-24">
+      <div className="flex flex-col items-center mx-auto max-w-6xl px-6 gap-8">
         {/* Icon */}
-        <FaHandshakeAngle className="w-36 h-36 rounded-full bg-zinc-100 shadow-inner" />
+        <FaHandshakeAngle className="w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full bg-zinc-100 shadow-inner hover:rotate-360 transition duration-500" />
 
         {/* Title */}
-        <h2 className="text-display text-center">
+        <h2 className="text-2xl md:text-4xl lg:text-5xl text-center">
           <div>Tell me about your next</div>
           project
         </h2>
