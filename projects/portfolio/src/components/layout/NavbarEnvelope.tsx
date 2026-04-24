@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
+import { createPortal } from "react-dom";
 
 export default function NavbarEnvelope() {
   const [scrolled, setScrolled] = useState(false);
@@ -61,7 +62,7 @@ export default function NavbarEnvelope() {
           <nav className="hidden md:flex items-center justify-between">
             <div></div>
 
-            <ul className="flex items-center gap-1 text-base text-zinc-600">
+            <ul className="flex items-center gap-3 text-base text-zinc-600 font-semibold">
               {sections.map((section) => (
                 <li
                   onClick={() => scrollToSection(section)}
@@ -74,42 +75,67 @@ export default function NavbarEnvelope() {
           </nav>
           <nav className="flex flex-col items-end justify-end">
             <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-              {isOpen ? (
-                <Icon
-                  icon={"ri:close-large-fill"}
-                  className="
-                    text-3xl
-                    text-tertiary  
-                  "
-                />
-              ) : (
-                <Icon
-                  icon={"charm:menu-hamburger"}
-                  className="
-                    text-3xl
-                    text-tertiary  
-                  "
-                />
-              )}
+              <Icon
+                icon={isOpen ? "ri:close-large-fill" : "charm:menu-hamburger"}
+                className={`
+                  p-1 text-4xl rounded-md shadow-sm
+                  transition-transform duration-500
+                  ${isOpen ? "rotate-0 text-[#c0392b]" : "rotate-180 text-[#5b7fa6]"}
+                `}
+              />
             </button>
-            {isOpen && (
+            {/* selalu render, tapi kontrol dengan isOpen */}
+            {createPortal(
               <div
-                className="
-                          absolute top-full right-9 left-9
-                          flex flex-col
-                          md:hidden
-                          bg-secondary
-                          text-center
-                          border-t-0 border-b-2 border-x-2 border-zinc-200 rounded-b-md 
-                          shadow-md
-                        "
+                className={`
+                  fixed z-50 flex flex-col md:hidden text-center
+                  rounded-b-md border-x-2 border-b-2 border-zinc-200
+                  shadow-sm overflow-hidden
+                  transition-all duration-300 ease-in-out
+                  ${
+                    isOpen
+                      ? "opacity-100 translate-y-0 pointer-events-auto"
+                      : "opacity-0 -translate-y-4 pointer-events-none"
+                  }
+                `}
+                style={{
+                  top: "var(--nav-h)",
+                  left: "2.6rem",
+                  right: "2.6rem",
+                }}
               >
-                {sections.map((section) => (
-                  <div className="py-2 border-t border-tertiary  tracking-widest cursor-pointer hover:text-accent hover:bg-primary">
-                    <a onClick={() => scrollToSection(section)}>{section}</a>
-                  </div>
-                ))}
-              </div>
+                {scrolled && (
+                  <div className="absolute inset-0 bg-primary/30 backdrop-blur-sm" />
+                )}
+                <div
+                  className={`relative flex flex-col text-center ${!scrolled ? "bg-secondary" : ""}`}
+                >
+                  {sections.map((section, index) => (
+                    <div
+                      key={section}
+                      className="py-2 border-t border-tertiary tracking-widest cursor-pointer hover:text-accent hover:bg-primary
+                      transition-all duration-300"
+                      style={{
+                        transitionDelay: isOpen ? `${index * 100}ms` : "0ms",
+                        opacity: isOpen ? 1 : 0,
+                        transform: isOpen
+                          ? "translateY(0)"
+                          : "translateY(-10px)",
+                      }}
+                    >
+                      <a
+                        onClick={() => {
+                          scrollToSection(section);
+                          setIsOpen(false);
+                        }}
+                      >
+                        {section}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>,
+              document.body,
             )}
           </nav>
         </div>

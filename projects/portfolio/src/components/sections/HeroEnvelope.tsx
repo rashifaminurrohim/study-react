@@ -43,8 +43,9 @@ export default function HeroEnvelope() {
         <div
           className="
             absolute bottom-[8%] left-[6%] md:left-[8%] lg:left-[10%] 
-            flex flex-col gap-3
+            flex flex-col 
             pr-8
+            text-text
           "
         >
           <h1
@@ -55,13 +56,20 @@ export default function HeroEnvelope() {
           >
             Hey, I'm Rashif Aminurrohim
           </h1>
-          <h2
+          <p
             className="
-              text-sm md:text-lg lg:text-xl
+              text-sm md:text-lg lg:text-2xl font-bold
             "
           >
-            Software Developer based in Indonesia
-          </h2>
+            Web & Mobile Developer
+          </p>
+          <p
+            className="
+              text-sm md:text-lg lg:text-2xl font-bold
+            "
+          >
+            based in Bandung, Indonesia
+          </p>
         </div>
       </div>
     </div>
