@@ -1,7 +1,66 @@
-import FotoRashif from "../../assets/JADI.png";
-import PostMark from "../../assets/postmark2.png";
+import Stamp1 from "../../assets/stamp1.png";
+import Original1 from "../../assets/original1.png";
+import Stamp2 from "../../assets/stamp2.png";
+import Original2 from "../../assets/original2.png";
+import Stamp3 from "../../assets/stamp3.png";
+import Original3 from "../../assets/original3.png";
+import PostMark from "../../assets/postmark2-indonesia.png";
+import StampFrame from "./StampFrame";
+import { useEffect, useRef, useState } from "react";
+
+const images = [
+  {
+    stamp: Stamp1,
+    original: Original1,
+  },
+  {
+    stamp: Stamp2,
+    original: Original2,
+  },
+  {
+    stamp: Stamp3,
+    original: Original3,
+  },
+];
 
 export default function HeroEnvelope() {
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+  const intervalRef = useRef<number | null>(null);
+
+  const nextImage = () => {
+    if (isFading) return;
+
+    setIsFading(true);
+
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+      setIsFading(false);
+    }, 300);
+  };
+
+  const startSlideShow = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    intervalRef.current = window.setInterval(() => {
+      nextImage();
+    }, 5000);
+  };
+
+  const handleNextImage = () => {
+    nextImage();
+    startSlideShow();
+  }
+
+  useEffect(() => {
+    startSlideShow();
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
+
   return (
     <div
       className="
@@ -20,21 +79,28 @@ export default function HeroEnvelope() {
             absolute top-[calc(var(--nav-h)+2rem)] right-[4%]
           "
         >
-          <img
-            src={FotoRashif}
-            alt="Frame"
-            className="
-              h-45 md:h-55 lg:h-65 
-              object-cover
-            "
-          />
+          <StampFrame>
+            <img
+              src={images[currentIndex].stamp}
+              alt="Frame"
+              onClick={handleNextImage}
+              className={`
+                h-45 md:h-55 lg:h-65 
+                object-cover
+                cursor-pointer
+                transition-all duration-400
+                hover:scale-[1.01]
+                ${isFading ? "opacity-0" : "opacity-100"}
+              `}
+            />
+          </StampFrame>
           <img
             src={PostMark}
             alt="Frame"
             className="
-              absolute top-[50%] right-[55%]
+              absolute top-[64%] right-[60%]
               h-30 md:h-35 lg:h-40
-              rotate-340 
+              rotate-355 
               object-cover 
             "
           />
@@ -42,7 +108,7 @@ export default function HeroEnvelope() {
         {/* Nama & Okupasi - kiri bawah */}
         <div
           className="
-            absolute bottom-[8%] left-[6%] md:left-[8%] lg:left-[10%] 
+            absolute bottom-[8%] left-[6%]
             flex flex-col 
             pr-8
             text-text
