@@ -1,0 +1,18 @@
+export const techstacks = [
+  "devicon:html5",
+  "devicon:css3",
+  "logos:javascript",
+  "devicon:typescript",
+  "logos:python",
+  "logos:java",
+  "logos:kotlin-icon",
+  "logos:react",
+  "logos:nodejs-icon",
+  "simple-icons:express",
+  "logos:android-icon",
+  "logos:git-icon",
+  "devicon:postman",
+  "devicon:postgresql",
+  "flat-color-icons:linux",
+  "logos:aws",
+];

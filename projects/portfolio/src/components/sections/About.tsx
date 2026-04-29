@@ -1,33 +1,7 @@
+import { experiences } from "../../data/experiences";
 import { LiaDownloadSolid } from "react-icons/lia";
 
 export default function About() {
-  const experiences = [
-    {
-      role: "Cloud Computing Trainee",
-      place: "Orbit Future Academy",
-      desc: "Learned cloud fundamentals and deployed applications using core cloud services.",
-      period: "Agt — Oct 2025",
-    },
-    {
-      role: "Fullstack Web Development Cohort",
-      place: "DBS Coding Camp 2025",
-      desc: "Built fullstack web applications using HTML, CSS, JS, React and Hapijs.",
-      period: "Feb — Jul 2025",
-    },
-    {
-      role: "Operations Assistant Intern",
-      place: "PT Taspen Persero Bandung",
-      desc: "Performed document digitization, assisted in claims processing, and managed archival records.",
-      period: "Oct — Feb 2025",
-    },
-    {
-      role: "Android Development Cohort",
-      place: "Bangkit Academy 2024",
-      desc: "Built Android applications using Kotlin, MVVM, and clean architecture.",
-      period: "Feb — Jul 2024",
-    },
-  ];
-
   return (
     <section
       className="
@@ -45,19 +19,22 @@ export default function About() {
 
             <div className="mx-3 text-paragraph text-zinc-600">
               <p>
-                Hi! I'm Rashif, a software developer with a strong interest in
-                Mobile and Web development. I enjoy building clean, scalable
-                applications and turning ideas into structured, user-friendly
-                solutions. I'm currently focused on improving my skills in
+                Hi! I’m Rashif, a software developer with a strong interest in
+                mobile and web development. I enjoy building clean, scalable
+                applications and transforming ideas into structured,
+                user-friendly solutions. Currently, I’m sharpening my skills in
                 modern web technologies while continuing to deepen my experience
-                in mobile development. I'm particularly interested in clean
-                architecture, maintainable code, and creating interfaces that
-                feel simple and intuitive.
+                in mobile development. I’m particularly passionate about clean
+                architecture, maintainable code, and crafting interfaces that
+                feel simple, intuitive, and purposeful. I’m also open to
+                internships, freelance projects, and junior developer
+                opportunities.
               </p>
               <br />
               <p>
                 Outside of coding, I enjoy working out, watching movies, and
-                continuously learning things that help me grow as a developer.
+                continuously learning things that help me grow both as a
+                developer and as a person.
               </p>
             </div>
 
@@ -84,7 +61,9 @@ export default function About() {
                 </div>
                 <div className="lg:col-span-8 mb-4">
                   <p className="font-medium text-accent">{experience.role}</p>
-                  <p className="text-sm text-zinc-400 mb-1">{experience.place}</p>
+                  <p className="text-sm text-zinc-400 mb-1">
+                    {experience.place}
+                  </p>
                   <p className="text-sm text-zinc-600">{experience.desc}</p>
                 </div>
               </div>

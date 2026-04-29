@@ -59,10 +59,9 @@ export default function NavbarEnvelope() {
         }`}
       >
         <div className="max-w-full mx-auto px-4 py-4">
-          <nav className="hidden md:flex items-center justify-between">
+          <nav className="hidden md:flex items-center justify-between px-8">
             <div></div>
-
-            <ul className="flex items-center gap-3 text-base text-zinc-600 font-semibold">
+            <ul className="flex items-center gap-5 text-base text-zinc-600 font-semibold">
               {sections.map((section) => (
                 <li
                   onClick={() => scrollToSection(section)}

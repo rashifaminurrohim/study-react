@@ -1,25 +1,7 @@
 import { Icon } from "@iconify/react";
+import { techstacks } from "../../data/techstacks";
 
 export default function TechStack() {
-  const icons = [
-    "devicon:html5",
-    "devicon:css3",
-    "logos:javascript",
-    "devicon:typescript",
-    "logos:python",
-    "logos:java",
-    "logos:kotlin-icon",
-    "logos:react",
-    "logos:nodejs-icon",
-    "simple-icons:express",
-    "logos:android-icon",
-    "logos:git-icon",
-    "devicon:postman",
-    "devicon:postgresql",
-    "flat-color-icons:linux",
-    "logos:aws",
-  ];
-
   return (
     <div className="bg-primary overflow-hidden">
       <div className="bg-secondary py-10 border border-t-0 border-x-2 border-b-2 rounded-b-[100px] border-zinc-200 shadow-[0_2px_4px_-1px_rgba(0,0,0,0.07)]" />
@@ -34,7 +16,7 @@ export default function TechStack() {
             className="flex w-max animate-marquee"
             style={{ animationPlayState: "var(--play-state, running)" }}
           >
-            {[...icons, ...icons].map((icon, index) => (
+            {[...techstacks, ...techstacks].map((icon, index) => (
               <div
                 key={index}
                 className="mx-4 md:mx-6 lg:mx-8 flex items-center justify-center"

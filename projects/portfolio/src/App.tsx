@@ -1,4 +1,3 @@
-import Container from "./components/layout/Container";
 import Footer from "./components/layout/Footer";
 import NavbarEnvelope from "./components/layout/NavbarEnvelope";
 import About from "./components/sections/About";
@@ -13,41 +12,29 @@ export default function App() {
     <main className="bg-primary min-h-screen mx-1">
       <NavbarEnvelope />
       <section id="home">
-        <Container>
-          <div className="min-h-[calc(100vh-var(--nav-h))] flex flex-col">
-            <HeroEnvelope />
-          </div>
-        </Container>
+        <div className="min-h-[calc(100vh-var(--nav-h))] flex flex-col">
+          <HeroEnvelope />
+        </div>
       </section>
 
       <section id="about">
-        <Container>
-          <About />
-        </Container>
+        <About />
       </section>
 
       <section id="skills">
-        <Container>
-          <Skills />
-        </Container>
+        <Skills />
       </section>
 
       <section id="techstack">
-        <Container>
-          <TechStack />
-        </Container>
+        <TechStack />
       </section>
 
       <section id="projects">
-        <Container>
-          <Projects />
-        </Container>
+        <Projects />
       </section>
 
       <section id="contact">
-        <Container>
-          <Contact />
-        </Container>
+        <Contact />
       </section>
 
       <Footer />

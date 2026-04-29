@@ -1,24 +1,7 @@
 import { Icon } from "@iconify/react";
+import { skills } from "../../data/skills";
 
 export default function Skills() {
-  const skills = [
-    {
-      title: "Build",
-      desc: "Build end-to-end web and mobile applications using modern technologies.",
-      icon: "grommet-icons:code",
-    },
-    {
-      title: "Deploy",
-      desc: "Deploying applications and managing production environments.",
-      icon: "lucide:rocket",
-    },
-    {
-      title: "Maintain",
-      desc: "Refactoring and improving code for scalability and stability.",
-      icon: "streamline-flex:wrench-hand",
-    },
-  ];
-
   return (
     <section className="bg-secondary border border-t-0 border-x-2 border-b-0 border-zinc-200">
       <div className="flex flex-col max-w-6xl mx-auto p-10 pt-40 gap-10">
@@ -31,7 +14,8 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="p-6  bg-primary border-2 border-white rounded-2xl shadow-sm hover:shadow-md transition duration-200">
+              className="p-6  bg-primary border-2 border-white rounded-2xl shadow-sm hover:shadow-md transition duration-200"
+            >
               <div className="flex items-center mb-4 gap-4">
                 <Icon
                   icon={skill.icon}
