@@ -35,20 +35,26 @@ function App() {
         </div>
       </div>
       <div className="bottom">
-        <p>My Name is blablabla. To say that</p>
-        <div>
-          <button className="buttons">
-            <img src="" alt="" />
-            <p>Phd</p>
-          </button>
-          <button className="buttons">
-            <img src="" alt="" />
-            <p>mountaineer</p>
-          </button>
-          <button className="buttons">
-            <img src="" alt="" />
-            <p>3D Geek</p>
-          </button>
+        <div className="desc">
+          <p>My Name is <b>Black cat</b> and I am a Developer.</p>
+          <p>To say that I love software is understatement, I spend every waking hour building something FUN & watching Tech Podcast or attending Meetups & Conferences.</p>
+          <div className="buttons height">
+            <button>
+              <Icon icon={"twemoji:microscope"} />
+              <p>Phd</p>
+            </button>
+            <button>
+              <Icon icon={"fluent-emoji-flat:mountain"} />
+              <p>mountaineer</p>
+            </button>
+            <button>
+              <Icon
+                icon={"game-icons:rolling-dices"}
+                style={{ color: "white" }}
+              />
+              <p>3D Geek</p>
+            </button>
+          </div>
         </div>
       </div>
     </div>
