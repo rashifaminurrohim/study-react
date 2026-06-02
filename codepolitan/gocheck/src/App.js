@@ -1,16 +1,17 @@
 import { useState } from "react";
 
-const ListItems = [
-  { id: 1, title: "Eat", done: false },
-  { id: 2, title: "Sleep", done: true },
-]
-
 function App() {
+  const [listItems, setListItems] = useState([]);
+
+  function handleAddItem(item) {
+    setListItems((prev) => [...prev, item])
+  }
+
   return (
     <div className="app">
       <Logo />
-      <Form />
-      <CheckList />
+      <Form onAddItem={handleAddItem} />
+      <CheckList items={listItems} />
       <Stats />
     </div>
   );
@@ -20,11 +21,21 @@ function Logo() {
   return <span className="logo">📝GoCheck✅</span>
 }
 
-function Form() {
+function Form({ onAddItem }) {
   const [title, setTitle] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (!title.trim()) return
+
+    onAddItem({
+      id: Date.now(),
+      title,
+      done: false,
+    });
+
+    setTitle("");
   }
 
   return <form className="add-form" onSubmit={handleSubmit}>
@@ -34,10 +45,10 @@ function Form() {
   </form>
 }
 
-function CheckList() {
+function CheckList({ items }) {
   return <div className="list">
     <ul>
-      {ListItems.map((item) => (
+      {items.map((item) => (
         <Item key={item.id} item={item} />
       ))}
     </ul>
